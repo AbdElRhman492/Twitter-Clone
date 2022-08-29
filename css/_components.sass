@@ -1,0 +1,351 @@
+@mixin flex($justify, $align)
+  display: flex
+  justify-content: $justify
+  align-items: $align
+
+.tweet-btn
+  @include flex($justify: center, $align: center)
+  width: 90%
+  height: 55px
+  background: rgb(29, 155, 240)
+  border-radius: 9999px
+  font-size: 1.7rem
+  cursor: pointer
+  font-weight: 700
+  border: none
+  margin-top: 15px
+  transition: 0.3s ease
+  &:hover
+    background: rgba(29, 155, 240, 0.9)
+  svg
+    display: none
+
+.tweet-img
+  width: 45px
+  height: 45px
+  border-radius: 50%
+
+.show-more
+  vertical-align: middle
+  color: $dim-500
+  font-size: 1.5rem
+  font-weight: 300
+  width: 100%
+  padding: 15px
+  &:hover
+    background: $dim-400
+    border-radius: 0 0 16px 16px
+
+body
+  // Header
+  header
+    @include flex($justify: space-between, $align: center)
+    flex-direction: column
+    padding: 10px 0 10px 13%
+    width: 29%
+    height: 100vh
+    position: fixed
+    nav
+      @include flex($justify: space-between, $align: start)
+      flex-direction: column
+      width: 100%
+      height: 70%
+      .link
+        &:first-child
+          padding: 15px
+          svg
+            font-size: 3.5rem
+            margin: 0
+            color: $dim-500
+        @include flex($justify: start, $align: center)
+        font-size: 2rem
+        padding: 8px 25px 8px 15px
+        width: fit-content
+        &:hover,
+        &.active
+          background: $dim-400
+          border-radius: 9999px
+        svg
+          font-size: 2.3rem
+          margin-right: 15px
+    .account
+      width: 100%
+      height: 30%
+      padding-top: 185px
+      a
+        @include flex($justify: space-between, $align: center)
+        padding: 15px
+        margin-right: 10px
+        .account-details
+          @include flex($justify: start, $align: start)
+          flex-direction: column
+          flex-basis: 70%
+          margin-right: 10px
+          font-size: 1.5rem
+          line-height: 20px
+          .account-name
+            font-weight: 500
+          .account-handle
+            color: rgb(110, 118, 125)
+            transition: 0.3s ease
+        &:hover
+          background: $dim-400
+          border-radius: 9999px
+        &:last-child
+          font-size: 2.2rem
+  // Main Section
+  main
+    width: 71%
+    height: 100%
+    margin-left: 29%
+    .flex-container
+      width: 100%
+      @include flex($justify: start, $align: start)
+      > div
+        width: 50%
+        height: 100%
+      .main-feeds
+        border-left: 1px solid $dim-400
+        border-right: 1px solid $dim-400
+        .home
+          @include flex($justify: space-between, $align: center)
+          height: 55px
+          width: 100%
+          font-size: 2rem
+          font-weight: 400
+          padding: 0 15px
+          position: sticky
+          top: 0
+          background: $dim-900
+          border-bottom: 1px solid $dim-400
+          svg
+            color: $dim-500
+            font-size: 2.2rem
+        .tweet-post
+          @include flex($justify: start, $align: start)
+          width: 100%
+          height: 120px
+          padding: 15px 16px 8px
+          border-bottom: 1px solid $dim-400
+          .tweet-img
+            width: 50px
+            height: 50px
+            cursor: pointer
+            margin-right: 15px
+          .details
+            @include flex($justify: space-evenly, $align: start)
+            flex-direction: column
+            padding-top: 4px
+            width: 100%
+            margin-left: 12px
+            input
+              border: none
+              outline: none
+              width: 100%
+              height: 24px
+              background: $dim-900
+              font-size: 2rem
+            .actions
+              @include flex($justify: space-between, $align: center)
+              width: 100%
+              height: 60px
+              margin-top: 20px
+              .reactions
+                svg
+                  margin-right: 8px
+                  color: $dim-500
+                  cursor: pointer
+                  font-size: 1.5rem
+              button
+                width: 75px
+                margin: 0
+                height: 35px
+                font-size: 1.5rem
+                font-weight: 400
+        .tweet
+          display: flex
+          min-height: 100px
+          padding: 12px 16px 0 16px
+          border-bottom: 1px solid $dim-400
+          cursor: pointer
+          &-details
+            display: flex
+            flex-direction: column
+            width: 100%
+            margin-left: 15px
+            .tweeter-details
+              @include flex($justify: space-between, $align: flex-start)
+              font-size: 1.5rem
+              a
+                font-weight: 700
+                span
+                  color: rgb(110, 118, 125)
+                  font-size: 1.5rem
+                  font-weight: 400
+                  margin-left: 5px
+          &-text
+            font-size: 1.5rem
+            width: 100%
+          &-icons
+            @include flex($justify: space-between, $align: center)
+            margin: 15px 0
+            width: 100%
+            padding-right: 50px
+          &:last-child
+            border: none
+          svg
+            color: rgb(110, 118, 125)
+            font-size: 2rem
+      .side-feeds
+        width: 50%
+        padding: 0 2%
+        h1
+          font-size: 2rem
+          font-weight: 700
+          line-height: 24px
+          padding: 15px
+          border-bottom: 1px solid $dim-400
+        .search
+          display: flex
+          height: 55px
+          max-width: 355px
+          position: sticky
+          top: 0
+          padding-top: 5px
+          background: $dim-900
+          input
+            background: $dim-400
+            height: 45px
+            width: 100%
+            border-radius: 9999px
+            border: none
+            outline: none
+            padding-left: 30px
+            font-size: 1.5rem
+            font-weight: 400
+            line-height: 20px
+        .trending
+          display: flex
+          flex-direction: column
+          max-width: 355px
+          min-height: 100px
+          border-radius: 15px
+          background-color: $dim-700
+          margin-top: 16px
+          .trend-box
+            @include flex($justify: center, $align: start)
+            gap: 3px
+            flex-direction: column
+            width: 100%
+            height: 90px
+            padding: 0 15px
+            border-bottom: 1px solid $dim-400
+            color: rgb(110, 118, 125)
+            font-size: 1.5rem
+            font-weight: 600
+            cursor: pointer
+            .trend-place
+              @include flex($justify: space-between, $align: center)
+              width: 100%
+            span
+              font-size: 1.3rem
+              font-weight: 400
+            p
+              color: $white
+            &:hover
+              background: $dim-400
+        .follow
+          display: flex
+          flex-direction: column
+          max-width: 355px
+          min-height: 100px
+          background: $dim-700
+          border-radius: 16px
+          margin-top: 20px
+          &-profile
+            @include flex($justify: space-between, $align: center)
+            height: 70px
+            width: 100%
+            border-bottom: 1px solid $dim-400
+            padding: 30px 15px
+            .follow-details
+              display: flex
+              flex-direction: column
+              margin-left: -10px
+              a
+                font-size: 1.4rem
+                font-weight: 700
+                &:hover
+                  text-decoration: underline
+              span
+                color: rgb(110, 118, 125)
+                font-size: 1.4rem
+                font-weight: 400
+                &#follows
+                  font-weight: 300
+                  font-size: 1.35rem
+                  background: $dim-400
+                  border-radius: 3px
+                  padding: 2px 4px
+            .tweet-btn
+              width: 75px
+              height: 35px
+              margin: 0 0 0 12px
+              font-weight: 600
+              font-size: 1.5rem
+              background: #fff
+              color: $dim-700
+            &:hover
+              background: $dim-400
+              span#follows
+                background: $dim-700
+
+@media screen and (max-width: 1260px)
+  header
+    width: 10%
+    padding: 10px 0
+    .link
+      margin: 0 !important
+      width: 45px !important
+      height: 45px !important
+      border-radius: 50% !important
+      padding: 0 !important
+      justify-content: center !important
+      svg
+        margin: 0 !important
+      span
+        display: none
+    .tweet-btn
+      width: 55px
+      height: 55px
+      border-radius: 50%
+      span
+        display: none
+      svg
+        display: block
+    .account
+      display: flex
+      justify-content: start
+      svg
+        display: none
+      &-details
+        display: none !important
+      a
+        padding: 0 !important
+  main
+    margin-left: 10%
+
+@media screen and (max-width: 1130px)
+  main
+    .side-feeds
+      display: none
+    .main-feeds
+      width: 100% !important
+
+@media screen and (max-width: 520px)
+  header
+    width: 75px !important
+    padding: 15px 20px !important
+  main
+    margin-left: 85px !important
+    width: calc( 100% - 85px ) !important
